@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	2c78f21f00c761fd3c6631d68d0159b3
 URL:		http://www.uchian.pwp.blueyonder.co.uk/kdenlive.html
 BuildRequires:	artsc-devel
+BuildRequires:	automake
 BuildRequires:	kdelibs-devel 
 Requires:	piave
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,6 +45,7 @@ Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 %setup -q
 
 %build
+cp -f /usr/share/automake/config.* admin
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 %configure
