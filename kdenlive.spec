@@ -2,7 +2,7 @@ Summary:	KDE movie editor
 Summary(pl):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	0.2.4
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -66,10 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/%{name}
 
 # TODO: desktopdir
-#%{_applnkdir}/Multimedia/%{name}.desktop
-#%%{_pixmapsdir}/*/*/apps/*.rc
-#%%{_libdir}/kde3/libkplayerpart.la
-#%%{_libdir}/kde3/libkplayerpart.so
+%{_applnkdir}/Multimedia/%{name}.desktop
 %{_datadir}/mimelnk/application/*.desktop
 %{_iconsdir}/*/*/apps/*.png
-%{_pixmapsdir}/piave.png
+%{_iconsdir}/piave.png
