@@ -5,12 +5,13 @@ Version:	0.2.4
 Release:	0.2
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	2c78f21f00c761fd3c6631d68d0159b3
 URL:		http://www.uchian.pwp.blueyonder.co.uk/kdenlive.html
 BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel 
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	piave
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
