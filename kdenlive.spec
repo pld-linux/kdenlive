@@ -14,8 +14,6 @@ BuildRequires:	kdelibs-devel
 Requires:	piave
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_htmldir	/usr/share/doc/kde/HTML
-
 %description
 Kdenlive is a non-linear video editor for KDE. It provides all project
 management and editing tools while relying on a separate rendering
@@ -46,16 +44,18 @@ Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 
 %build
 cp -f /usr/share/automake/config.* admin
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT{%{_datadir}/applnk/Multimedia/*.desktop,%{_desktopdir}/kde}
 
 %find_lang %{name} --with-kde
 
@@ -66,9 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/apps/%{name}
-
-# TODO: desktopdir
-%{_applnkdir}/Multimedia/%{name}.desktop
+%{_desktopdir}/kde/%{name}.desktop
 %{_datadir}/mimelnk/application/*.desktop
 %{_iconsdir}/*/*/apps/*.png
 %{_iconsdir}/piave.png
