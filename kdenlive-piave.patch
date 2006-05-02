@@ -1,0 +1,20 @@
+--- kdenlive-0.2.4/kdenlive/krendermanager.cpp~	2003-12-17 02:14:33.000000000 +0200
++++ kdenlive-0.2.4/kdenlive/krendermanager.cpp	2006-05-02 21:37:48.000000000 +0300
+@@ -21,7 +21,7 @@
+ 
+ KRenderManager::KRenderManager() :
+                         QObject(),
+-                        m_renderAppPath(KURL("/usr/local/bin/piave")),
++                        m_renderAppPath(KURL("/usr/bin/piave")),
+                         m_firstPort(6100),
+                         m_currentPort(6100)
+ {
+@@ -60,7 +60,7 @@
+ void KRenderManager::readConfig(KConfig *config)
+ {
+   config->setGroup("Renderer Options");
+-  setRenderAppPath(config->readEntry("App Path", "/usr/local/bin/piave"));
++  setRenderAppPath(config->readEntry("App Path", "/usr/bin/piave"));
+   setRenderAppPort(config->readUnsignedNumEntry("App Port", 6100));
+ }
+ 
