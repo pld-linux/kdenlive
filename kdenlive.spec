@@ -8,6 +8,7 @@ Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	2c78f21f00c761fd3c6631d68d0159b3
 Patch0:		%{name}-piave.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://kdenlive.sourceforge.net/
 BuildRequires:	artsc-devel
 BuildRequires:	automake
@@ -44,6 +45,7 @@ Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.* admin
