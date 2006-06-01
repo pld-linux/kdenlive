@@ -1,7 +1,0 @@
---- kdenlive-0.2.4/kdenlive/kdenlive.desktop~	2003-12-17 02:14:12.000000000 +0200
-+++ kdenlive-0.2.4/kdenlive/kdenlive.desktop	2006-05-02 21:52:47.000000000 +0300
-@@ -10,3 +10,4 @@
- Terminal=0
- Name=Kdenlive
- Name[de]=Kdenlive
-+Categories=KDE;AudioVideo;AudioVideoEditing;
