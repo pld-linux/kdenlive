@@ -14,8 +14,8 @@ BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
 BuildRequires:	kdelibs-devel
-BuildRequires:	mlt-devel >= 0.2.2
 BuildRequires:	mlt++-devel >= 0.2.2
+BuildRequires:	mlt-devel >= 0.2.2
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
