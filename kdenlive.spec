@@ -1,20 +1,22 @@
 Summary:	KDE movie editor
 Summary(pl):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.2.4
-Release:	0.3
+Version:	0.3.0
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	2c78f21f00c761fd3c6631d68d0159b3
-Patch0:		%{name}-piave.patch
-Patch1:		%{name}-desktop.patch
+# Source0-md5:	190efd0b823d8d5e10f72034c27667ee
 URL:		http://kdenlive.sourceforge.net/
+BuildRequires:	SDL-devel
+BuildRequires:	SDL_image-devel
 BuildRequires:	artsc-devel
 BuildRequires:	automake
+BuildRequires:	ffmpeg-devel
 BuildRequires:	kdelibs-devel
+BuildRequires:	mlt-devel >= 0.2.2
+BuildRequires:	mlt++-devel >= 0.2.2
 BuildRequires:	rpmbuild(macros) >= 1.129
-Requires:	piave
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,13 +45,12 @@ Mo¿na odtwarzaæ/podgl±daæ zawarto¶æ w dowolnej chwili edycji.
 Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}-0.3
 
 %build
 cp -f /usr/share/automake/config.* admin
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
+%{__make} -f Makefile.cvs
 %configure
 %{__make}
 
@@ -59,8 +60,6 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT{%{_datadir}/applnk/Multimedia/*.desktop,%{_desktopdir}/kde}
 
 %find_lang %{name} --with-kde
 
@@ -73,5 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/%{name}
 %{_desktopdir}/kde/%{name}.desktop
 %{_datadir}/mimelnk/application/*.desktop
+%{_datadir}/config.kcfg/kdenlive.kcfg
 %{_iconsdir}/*/*/apps/*.png
-%{_iconsdir}/piave.png
