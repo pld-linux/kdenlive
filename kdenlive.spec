@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	190efd0b823d8d5e10f72034c27667ee
+Patch0:	%{name}-autoconf26.patch
 URL:		http://kdenlive.sourceforge.net/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -46,6 +47,7 @@ Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 
 %prep
 %setup -q -n %{name}-0.3
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* admin
