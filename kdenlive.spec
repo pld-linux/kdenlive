@@ -1,12 +1,12 @@
 Summary:	KDE movie editor
 Summary(pl):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.3.0
+Version:	0.4
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	190efd0b823d8d5e10f72034c27667ee
+# Source0-md5:	bfa1da2d170e54420492e8fb2cea3681
 Patch0:	%{name}-autoconf26.patch
 URL:		http://kdenlive.sourceforge.net/
 BuildRequires:	SDL-devel
@@ -14,6 +14,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
+BuildRequires:	libiec61883-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	mlt++-devel >= 0.2.2
 BuildRequires:	mlt-devel >= 0.2.2
@@ -46,7 +47,7 @@ Mo¿na odtwarzaæ/podgl±daæ zawarto¶æ w dowolnej chwili edycji.
 Obs³ugiwany jest zapis/odczyt pe³nego projektu.
 
 %prep
-%setup -q -n %{name}-0.3
+%setup -q
 %patch0 -p1
 
 %build
@@ -70,9 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}*
 %{_datadir}/apps/%{name}
 %{_desktopdir}/kde/%{name}.desktop
 %{_datadir}/mimelnk/application/*.desktop
 %{_datadir}/config.kcfg/kdenlive.kcfg
-%{_iconsdir}/*/*/apps/*.png
+%{_iconsdir}/*/*/*/*.png
