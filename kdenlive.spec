@@ -7,15 +7,15 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	bfa1da2d170e54420492e8fb2cea3681
-Patch0:	%{name}-autoconf26.patch
+Patch0:		%{name}-autoconf26.patch
 URL:		http://kdenlive.sourceforge.net/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
-BuildRequires:	libiec61883-devel
 BuildRequires:	kdelibs-devel >= 9:3.4.0
+BuildRequires:	libiec61883-devel
 BuildRequires:	mlt++-devel >= 0.2.2
 BuildRequires:	mlt-devel >= 0.2.2
 BuildRequires:	rpmbuild(macros) >= 1.129
