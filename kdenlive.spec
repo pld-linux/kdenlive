@@ -15,7 +15,7 @@ BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
 BuildRequires:	libiec61883-devel
-BuildRequires:	kdelibs-devel
+BuildRequires:	kdelibs-devel >= 9:3.4.0
 BuildRequires:	mlt++-devel >= 0.2.2
 BuildRequires:	mlt-devel >= 0.2.2
 BuildRequires:	rpmbuild(macros) >= 1.129
