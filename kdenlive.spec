@@ -1,5 +1,5 @@
 Summary:	KDE movie editor
-Summary(pl):	Edytor filmów dla KDE
+Summary(pl.UTF-8):   Edytor filmÃ³w dla KDE
 Name:		kdenlive
 Version:	0.4
 Release:	0.1
@@ -33,18 +33,18 @@ result to another raw DV file. You may playback/preview the contents
 of the timeline at any point during the edit. Full project save/load
 is supported.
 
-%description -l pl
-Kdenlive to nieliniowy edytor filmów dla KDE. Dostarcza narzêdzia do
-zarz±dzania projektem i edycji polegaj±ce na oddzielnym programie
-renderuj±cym (aktualnie PIAVE) do wykonywania operacji edycji.
-Planowana jest obs³uga przej¶æ, efektów, wielu formatów plików oraz
-pe³nego zarz±dzania projektem i kapita³em. Aktualna wersja beta mo¿e
-modyfikowaæ pliki w formacie surowego DV oraz AVI DV przy u¿yciu
-narzêdzi takich jak przemieszczanie, ciêcia, zmiana rozmiaru,
-wybieranie czê¶ci klatek przy u¿yciu punktów wej¶ciowych/wyj¶ciowych
+%description -l pl.UTF-8
+Kdenlive to nieliniowy edytor filmÃ³w dla KDE. Dostarcza narzÄ™dzia do
+zarzÄ…dzania projektem i edycji polegajÄ…ce na oddzielnym programie
+renderujÄ…cym (aktualnie PIAVE) do wykonywania operacji edycji.
+Planowana jest obsÅ‚uga przejÅ›Ä‡, efektÃ³w, wielu formatÃ³w plikÃ³w oraz
+peÅ‚nego zarzÄ…dzania projektem i kapitaÅ‚em. Aktualna wersja beta moÅ¼e
+modyfikowaÄ‡ pliki w formacie surowego DV oraz AVI DV przy uÅ¼yciu
+narzÄ™dzi takich jak przemieszczanie, ciÄ™cia, zmiana rozmiaru,
+wybieranie czÄ™Å›ci klatek przy uÅ¼yciu punktÃ³w wejÅ›ciowych/wyjÅ›ciowych
 oraz eksportowanie wyniku do innego pliku w formacie surowego DV.
-Mo¿na odtwarzaæ/podgl±daæ zawarto¶æ w dowolnej chwili edycji.
-Obs³ugiwany jest zapis/odczyt pe³nego projektu.
+MoÅ¼na odtwarzaÄ‡/podglÄ…daÄ‡ zawartoÅ›Ä‡ w dowolnej chwili edycji.
+ObsÅ‚ugiwany jest zapis/odczyt peÅ‚nego projektu.
 
 %prep
 %setup -q
