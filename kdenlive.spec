@@ -1,5 +1,5 @@
 Summary:	KDE movie editor
-Summary(pl.UTF-8):   Edytor filmów dla KDE
+Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	0.4
 Release:	0.1
