@@ -1,14 +1,17 @@
+# TODO:
+# - Still fails with Failed to load plugin: /usr/share/mlt/modules/libmltavformat.so: undefined symbol: img_convert
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.4
-Release:	2
+Version:	0.5
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	bfa1da2d170e54420492e8fb2cea3681
+# http://belnet.dl.sourceforge.net/sourceforge/kdenlive/kdenlive-0.5-1.tar.gz
+Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}-1.tar.gz
+# Source0-md5:	dab48a0c40b29c0fe496f3bb1cb0db0e
 Patch0:		%{name}-autoconf26.patch
-URL:		http://kdenlive.sourceforge.net/
+URL:		http://kdenlive.org/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	artsc-devel
