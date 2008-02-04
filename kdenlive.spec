@@ -4,7 +4,7 @@ Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	0.5
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 # http://belnet.dl.sourceforge.net/sourceforge/kdenlive/kdenlive-0.5-1.tar.gz
