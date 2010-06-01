@@ -3,25 +3,21 @@
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.5
-Release:	2
+Version:	0.7.7.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications/Multimedia
-# http://belnet.dl.sourceforge.net/sourceforge/kdenlive/kdenlive-0.5-1.tar.gz
-Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}-1.tar.gz
-# Source0-md5:	dab48a0c40b29c0fe496f3bb1cb0db0e
-Patch0:		%{name}-autoconf26.patch
+Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
+# Source0-md5:	ff18ee589297c1cca2c165fd4d3a4731
 URL:		http://kdenlive.org/
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
-BuildRequires:	kdelibs-devel >= 9:3.4.0
-BuildRequires:	libiec61883-devel
-BuildRequires:	mlt++-devel >= 0.2.2-3
-BuildRequires:	mlt-devel >= 0.2.4-3
+BuildRequires:  kde4-kdebase-devel
+BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:  shared-desktop-ontologies-devel
+BuildRequires:  soprano-devel
+BuildRequires:	mlt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -51,22 +47,21 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.* admin
-kde_htmldir="%{_kdedocdir}"; export kde_htmldir
-%{__make} -f Makefile.cvs
-%configure
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 
+cd build
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+cd ..
 %find_lang %{name} --with-kde
 
 %clean
@@ -75,8 +70,14 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
+%{_libdir}/kde4/*
 %{_datadir}/apps/%{name}
-%{_desktopdir}/kde/%{name}.desktop
-%{_datadir}/mimelnk/application/*.desktop
-%{_datadir}/config.kcfg/kdenlive.kcfg
+%{_datadir}/config/kdenlive*
+%{_desktopdir}/kde4/%{name}.desktop
+%{_datadir}/kde4/services/*.desktop
+%{_datadir}/config.kcfg/kdenlivesettings.kcfg
+%{_mandir}/man1/kdenlive*
+%{_datadir}/pixmaps/*
 %{_iconsdir}/*/*/*/*.png
+%{_iconsdir}/*/*/*/*.svgz
+%{_datadir}/mime/packages/*.xml
