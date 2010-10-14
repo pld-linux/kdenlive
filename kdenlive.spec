@@ -3,12 +3,12 @@
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.7.7.1
-Release:	0.2
+Version:	0.7.8
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	ff18ee589297c1cca2c165fd4d3a4731
+# Source0-md5:	7011d0c6b26f7f2350065defef3d9a76
 URL:		http://kdenlive.org/
 BuildRequires:	automake
 BuildRequires:	ffmpeg-devel
@@ -19,7 +19,9 @@ BuildRequires:  shared-desktop-ontologies-devel
 BuildRequires:  soprano-devel
 BuildRequires:	mlt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
+Suggests:	dvdauthor
+Suggests:	ffmpeg-ffplay 
+Suggests:	recordmydesktop
 %description
 Kdenlive is a non-linear video editor for KDE. It provides all project
 management and editing tools while relying on a separate rendering
@@ -62,6 +64,7 @@ cd build
 	DESTDIR=$RPM_BUILD_ROOT
 
 cd ..
+mv $RPM_BUILD_ROOT%{_datadir}/locale/zh  $RPM_BUILD_ROOT%{_datadir}/locale/zh_CN
 %find_lang %{name} --with-kde
 
 %clean
