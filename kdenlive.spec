@@ -4,13 +4,14 @@ Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	0.7.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	7011d0c6b26f7f2350065defef3d9a76
 URL:		http://kdenlive.org/
 BuildRequires:	automake
+BuildRequires:	cmake
 BuildRequires:	ffmpeg-devel
 BuildRequires:  kde4-kdebase-devel
 BuildRequires:	kde4-kdelibs-devel
