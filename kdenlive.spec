@@ -7,27 +7,25 @@ Version:	0.7.8
 Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	7011d0c6b26f7f2350065defef3d9a76
 URL:		http://kdenlive.org/
-BuildRequires:	automake
 BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	ffmpeg-devel
 BuildRequires:	gettext-devel
-BuildRequires:  kde4-kdebase-devel
 BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	mlt-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:  shared-desktop-ontologies-devel
-BuildRequires:  soprano-devel
-BuildRequires:	mlt-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	shared-desktop-ontologies-devel
+BuildRequires:	soprano-devel
 Suggests:	dvdauthor
-Suggests:	ffmpeg-ffplay 
+Suggests:	ffmpeg-ffplay
 Suggests:	recordmydesktop
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
 %description
 Kdenlive is a non-linear video editor for KDE. It provides all project
 management and editing tools while relying on a separate rendering
@@ -59,7 +57,7 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 %build
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+%cmake ..
 %{__make}
 
 %install
@@ -70,7 +68,7 @@ cd build
 	DESTDIR=$RPM_BUILD_ROOT
 
 cd ..
-mv $RPM_BUILD_ROOT%{_datadir}/locale/zh  $RPM_BUILD_ROOT%{_datadir}/locale/zh_CN
+mv $RPM_BUILD_ROOT%{_datadir}/locale/zh $RPM_BUILD_ROOT%{_datadir}/locale/zh_CN
 %find_lang %{name} --with-kde
 
 %clean
@@ -86,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/*.desktop
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_mandir}/man1/kdenlive*
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svgz
 %{_datadir}/mime/packages/*.xml
