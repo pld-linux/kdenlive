@@ -11,10 +11,15 @@ Source0:	http://dl.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
 # Source0-md5:	7011d0c6b26f7f2350065defef3d9a76
 URL:		http://kdenlive.org/
 BuildRequires:	automake
+BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	ffmpeg-devel
+BuildRequires:	gettext-devel
 BuildRequires:  kde4-kdebase-devel
 BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	pkgconfig
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:  shared-desktop-ontologies-devel
 BuildRequires:  soprano-devel
