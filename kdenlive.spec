@@ -1,14 +1,16 @@
 # TODO:
-# - Still fails with Failed to load plugin: /usr/share/mlt/modules/libmltavformat.so: undefined symbol: img_convert
+# - Doesn't work. Fails with nonsense 'MLT's SDL module not found'
+#   (http://www.kdenlive.org/mantis/view.php?id=913 and googling around does
+#   not help)
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.7.8
-Release:	2
+Version:	0.8
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://downloads.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	7011d0c6b26f7f2350065defef3d9a76
+# Source0-md5:	26170b4360285e8a7bf53fd122d8854e
 URL:		http://kdenlive.org/
 BuildRequires:	automoc4
 BuildRequires:	cmake
@@ -16,6 +18,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	mlt-devel
 BuildRequires:	pkgconfig
+BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
@@ -68,8 +71,10 @@ cd build
 	DESTDIR=$RPM_BUILD_ROOT
 
 cd ..
-mv $RPM_BUILD_ROOT%{_datadir}/locale/zh $RPM_BUILD_ROOT%{_datadir}/locale/zh_CN
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/zh
 %find_lang %{name} --with-kde
+
+rm -rf $RPM_BUILD_ROOT%{_datadir}/menu
 
 %clean
 rm -rf $RPM_BUILD_ROOT
