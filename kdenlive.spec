@@ -1,21 +1,18 @@
-# TODO:
-# - Doesn't work. Fails with nonsense 'MLT's SDL module not found'
-#   (http://www.kdenlive.org/mantis/view.php?id=913 and googling around does
-#   not help)
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.8
-Release:	0.1
+Version:	0.9.6
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://downloads.sourceforge.net/kdenlive/%{name}-%{version}.tar.gz
-# Source0-md5:	26170b4360285e8a7bf53fd122d8854e
+Source0:	ftp://ftp.debian.org/debian/pool/main/k/kdenlive/%{name}_%{version}.orig.tar.bz2
+# Source0-md5:	3bd3a511b860490acc367e7c9d7ffa43
 URL:		http://kdenlive.org/
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -25,7 +22,10 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
 Suggests:	dvdauthor
+Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
+Suggests:	frei0r-plugins
+Suggests:	mlt
 Suggests:	recordmydesktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
