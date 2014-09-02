@@ -1,19 +1,19 @@
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.9.6
+Version:	0.9.8
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	ftp://ftp.debian.org/debian/pool/main/k/kdenlive/%{name}_%{version}.orig.tar.bz2
-# Source0-md5:	3bd3a511b860490acc367e7c9d7ffa43
+Source0:	http://download.kde.org/stable/kdenlive/%{version}/src/%{name}-%{version}-1.tar.bz2
+# Source0-md5:	6c28868598eecd878b9d041bb3900615
 URL:		http://kdenlive.org/
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	gettext-devel
 BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel
+BuildRequires:	mlt-devel >= 0.9.2
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	qt4-build
@@ -25,7 +25,7 @@ Suggests:	dvdauthor
 Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
 Suggests:	frei0r-plugins
-Suggests:	mlt
+Suggests:	mlt >= 0.9.2
 Suggests:	recordmydesktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
