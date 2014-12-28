@@ -10,7 +10,7 @@ Source0:	http://download.kde.org/stable/kdenlive/%{version}/src/%{name}-%{versio
 URL:		http://kdenlive.org/
 BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel >= 0.9.2
