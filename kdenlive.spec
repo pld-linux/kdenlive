@@ -47,6 +47,8 @@ BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
+Requires:	Qt5Gui-platform-xcb-egl
+Requires:	Qt5Gui-platform-xcb-glx
 Requires:	Qt5Quick-controls
 Suggests:	dvdauthor
 Suggests:	dvgrab
