@@ -1,23 +1,49 @@
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	0.9.10
+Version:	16.08.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://download.kde.org/stable/kdenlive/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	40d7ee8e388cb084f5eb1ad1596a14b2
+Source0:	https://github.com/KDE/kdenlive/archive/v%{version}.tar.gz
+# Source0-md5:	f8f457bedaadbe603911893b6d7a1a62
 URL:		http://kdenlive.org/
-BuildRequires:	automoc4
+BuildRequires:	Qt5Concurrent-devel
+BuildRequires:	Qt5Core-devel
+BuildRequires:	Qt5DBus-devel
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Network-devel
+BuildRequires:	Qt5Qml-devel
+BuildRequires:	Qt5Quick-devel
+BuildRequires:	Qt5Script-devel
+BuildRequires:	Qt5Svg-devel
+BuildRequires:	Qt5WebKit-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake
 BuildRequires:	gettext-tools
-BuildRequires:	kde4-kdelibs-devel
+BuildRequires:	kf5-karchive-devel
+BuildRequires:	kf5-kbookmarks-devel
+BuildRequires:	kf5-kconfig-devel
+BuildRequires:	kf5-kconfigwidgets-devel
+BuildRequires:	kf5-kcoreaddons-devel
+BuildRequires:	kf5-kcrash-devel
+BuildRequires:	kf5-kdbusaddons-devel
+BuildRequires:	kf5-kdoctools-devel
+BuildRequires:	kf5-kfilemetadata-devel
+BuildRequires:	kf5-kguiaddons-devel
+BuildRequires:	kf5-kiconthemes-devel
+BuildRequires:	kf5-kio-devel
+BuildRequires:	kf5-knewstuff-devel
+BuildRequires:	kf5-knotifications-devel
+BuildRequires:	kf5-knotifyconfig-devel
+BuildRequires:	kf5-kplotting-devel
+BuildRequires:	kf5-ktextwidgets-devel
+BuildRequires:	kf5-kwidgetsaddons-devel
+BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 0.9.2
+BuildRequires:	mlt-devel >= 6.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
@@ -25,7 +51,7 @@ Suggests:	dvdauthor
 Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
 Suggests:	frei0r-plugins
-Suggests:	mlt >= 0.9.2
+Suggests:	mlt >= 6.0.0
 Suggests:	recordmydesktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,26 +96,25 @@ cd build
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cd ..
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/zh
-%find_lang %{name} --with-kde
-
-rm -rf $RPM_BUILD_ROOT%{_datadir}/menu
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
-%{_libdir}/kde4/*
-%{_datadir}/apps/%{name}
-%{_datadir}/config/kdenlive*
-%{_desktopdir}/kde4/%{name}.desktop
-%{_datadir}/kde4/services/*.desktop
+%attr(755,root,root) %{_libdir}/plugins/mltpreview.so
+%{_datadir}/appdata/kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
+%{_datadir}/knotifications5/kdenlive.notifyrc
+%{_datadir}/kservices5/mltpreview.desktop
+%{_datadir}/kxmlgui5/kdenlive/kdenliveui.rc
+%{_datadir}/mime/packages/*.xml
+%{_datadir}/%{name}
+%{_desktopdir}/org.kde.kdenlive.desktop
+%{_docdir}/HTML/en/kdenlive
+/etc/xdg/%{name}*.knsrc
+%{_iconsdir}/*/*/*/*.png
+%{_iconsdir}/*/*/*/*.svg
+%{_iconsdir}/*/*/*/*.svgz
 %{_mandir}/man1/kdenlive*
 %{_pixmapsdir}/*
-%{_iconsdir}/*/*/*/*.png
-%{_iconsdir}/*/*/*/*.svgz
-%{_datadir}/mime/packages/*.xml
