@@ -2,7 +2,7 @@ Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	16.08.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://github.com/KDE/kdenlive/archive/v%{version}.tar.gz
