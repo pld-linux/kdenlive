@@ -2,7 +2,7 @@ Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	16.08.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://github.com/KDE/kdenlive/archive/v%{version}.tar.gz
@@ -89,7 +89,9 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 %build
 mkdir build
 cd build
-%cmake ..
+%cmake .. \
+	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
+
 %{__make}
 
 %install
@@ -105,11 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
-%attr(755,root,root) %{_libdir}/plugins/mltpreview.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/mltpreview.so
 %{_datadir}/appdata/kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_datadir}/knotifications5/kdenlive.notifyrc
 %{_datadir}/kservices5/mltpreview.desktop
+%dir %{_datadir}/kxmlgui5/kdenlive
 %{_datadir}/kxmlgui5/kdenlive/kdenliveui.rc
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/%{name}
