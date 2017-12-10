@@ -1,12 +1,12 @@
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	16.08.1
-Release:	3
+Version:	17.08.3
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://github.com/KDE/kdenlive/archive/v%{version}.tar.gz
-# Source0-md5:	e48a1b167c7d6f5153581f3bb066d48d
+# Source0-md5:	fec06528009c1fa64f9661f4b6694b33
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -21,6 +21,7 @@ BuildRequires:	Qt5WebKit-devel
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake
 BuildRequires:	gettext-tools
+BuildRequires:	kf5-attica-devel
 BuildRequires:	kf5-karchive-devel
 BuildRequires:	kf5-kbookmarks-devel
 BuildRequires:	kf5-kconfig-devel
@@ -31,6 +32,7 @@ BuildRequires:	kf5-kdbusaddons-devel
 BuildRequires:	kf5-kdoctools-devel
 BuildRequires:	kf5-kfilemetadata-devel
 BuildRequires:	kf5-kguiaddons-devel
+BuildRequires:	kf5-ki18n-devel
 BuildRequires:	kf5-kiconthemes-devel
 BuildRequires:	kf5-kio-devel
 BuildRequires:	kf5-knewstuff-devel
@@ -40,6 +42,7 @@ BuildRequires:	kf5-kplotting-devel
 BuildRequires:	kf5-ktextwidgets-devel
 BuildRequires:	kf5-kwidgetsaddons-devel
 BuildRequires:	kf5-kxmlgui-devel
+BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel >= 6.0.0
 BuildRequires:	pkgconfig
@@ -108,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
 %attr(755,root,root) %{_libdir}/qt5/plugins/mltpreview.so
-%{_datadir}/appdata/kdenlive.appdata.xml
+%{_datadir}/appdata/org.kde.kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_datadir}/knotifications5/kdenlive.notifyrc
 %{_datadir}/kservices5/mltpreview.desktop
@@ -119,8 +122,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.kdenlive.desktop
 %{_docdir}/HTML/en/kdenlive
 /etc/xdg/%{name}*.knsrc
+/etc/xdg/kdenlive.categories
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svg
 %{_iconsdir}/*/*/*/*.svgz
 %{_mandir}/man1/kdenlive*
-%{_pixmapsdir}/*
