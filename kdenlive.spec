@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
 %attr(755,root,root) %{_libdir}/qt5/plugins/mltpreview.so
-%{_datadir}/appdata/org.kde.kdenlive.appdata.xml
+%{_datadir}/metainfo/org.kde.kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_datadir}/knotifications5/kdenlive.notifyrc
 %{_datadir}/kservices5/mltpreview.desktop
