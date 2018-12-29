@@ -1,12 +1,15 @@
+%define		kdeappsver	18.12.0
+%define		qtver		5.9.0
+%define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	17.08.3
+Version:	18.12.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	https://github.com/KDE/kdenlive/archive/v%{version}.tar.gz
-# Source0-md5:	fec06528009c1fa64f9661f4b6694b33
+Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	28e8c79216d3393eb50d90dd8d36e019
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -93,6 +96,7 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 mkdir build
 cd build
 %cmake .. \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
 
 %{__make}
@@ -100,14 +104,15 @@ cd build
 %install
 rm -rf $RPM_BUILD_ROOT
 
-cd build
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{kaname} --all-name --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
 %attr(755,root,root) %{_libdir}/qt5/plugins/mltpreview.so
