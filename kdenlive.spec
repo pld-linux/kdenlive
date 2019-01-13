@@ -1,15 +1,15 @@
-%define		kdeappsver	18.12.0
+%define		kdeappsver	18.12.1
 %define		qtver		5.9.0
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	18.12.0
+Version:	18.12.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	28e8c79216d3393eb50d90dd8d36e019
+# Source0-md5:	e5c76b3593f4420987e1c156afd056ac
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -48,6 +48,7 @@ BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel >= 6.0.0
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
@@ -96,16 +97,16 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 mkdir build
 cd build
 %cmake .. \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
 
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
 
