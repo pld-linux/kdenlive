@@ -1,15 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.0
 %define		qtver		5.9.0
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	18.12.1
-Release:	4
+Version:	19.04.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	e5c76b3593f4420987e1c156afd056ac
+# Source0-md5:	1386b04b1aef5832ae21525aaf4fc8b7
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -47,7 +47,7 @@ BuildRequires:	kf5-kwidgetsaddons-devel
 BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 6.0.0
+BuildRequires:	mlt-devel >= 6.12.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
