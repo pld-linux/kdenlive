@@ -10,6 +10,8 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	1386b04b1aef5832ae21525aaf4fc8b7
+Patch0:		c11.patch
+Patch1:		qt-5.15.patch
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -92,9 +94,11 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
-mkdir build
+mkdir -p build
 cd build
 %cmake .. \
 	-G Ninja \

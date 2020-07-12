@@ -1,0 +1,75 @@
+--- kdenlive-19.04.0/src/definitions.h~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/definitions.h	2020-07-12 14:06:45.856724124 +0200
+@@ -252,10 +252,12 @@
+ 
+ // we provide hash function for qstring and QPersistentModelIndex
+ namespace std {
++#if (QT_VERSION < QT_VERSION_CHECK(5, 14, 0))
+ template <> struct hash<QString>
+ {
+     std::size_t operator()(const QString &k) const { return qHash(k); }
+ };
++#endif
+ template <> struct hash<QPersistentModelIndex>
+ {
+     std::size_t operator()(const QPersistentModelIndex &k) const { return qHash(k); }
+--- kdenlive-19.04.0/src/assets/model/assetparametermodel.cpp~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/assets/model/assetparametermodel.cpp	2020-07-12 14:09:14.477267939 +0200
+@@ -26,6 +26,7 @@
+ #include "klocalizedstring.h"
+ #include "profiles/profilemodel.hpp"
+ #include <QDebug>
++#include <QDir>
+ #include <QJsonArray>
+ #include <QJsonObject>
+ #include <QLocale>
+--- kdenlive-19.04.0/src/assets/view/widgets/curves/bezier/beziersplineeditor.cpp~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/assets/view/widgets/curves/bezier/beziersplineeditor.cpp	2020-07-12 14:10:44.997929204 +0200
+@@ -24,6 +24,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ 
+ BezierSplineEditor::BezierSplineEditor(QWidget *parent)
+     : AbstractCurveWidget(parent)
+--- kdenlive-19.04.0/src/bin/abstractprojectitem.cpp~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/bin/abstractprojectitem.cpp	2020-07-12 14:11:11.618104727 +0200
+@@ -33,6 +33,7 @@
+ 
+ #include <QDomElement>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QVariant>
+ #include <utility>
+ AbstractProjectItem::AbstractProjectItem(PROJECTITEMTYPE type, QString id, const std::shared_ptr<ProjectItemModel> &model, bool isRoot)
+--- kdenlive-19.04.0/src/titler/gradientwidget.cpp~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/titler/gradientwidget.cpp	2020-07-12 14:11:31.398230030 +0200
+@@ -23,6 +23,7 @@
+ 
+ #include <QLinearGradient>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QPixmap>
+ #include <QtMath>
+ 
+--- kdenlive-19.04.0/src/doc/kdenlivedoc.h~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/doc/kdenlivedoc.h	2020-07-12 14:12:50.342023558 +0200
+@@ -25,6 +25,7 @@
+ #ifndef KDENLIVEDOC_H
+ #define KDENLIVEDOC_H
+ 
++#include <QAction>
+ #include <QDir>
+ #include <QList>
+ #include <QMap>
+--- kdenlive-19.04.0/src/monitor/glwidget.cpp~	2019-04-15 13:02:03.000000000 +0200
++++ kdenlive-19.04.0/src/monitor/glwidget.cpp	2020-07-12 14:14:09.482427764 +0200
+@@ -25,6 +25,7 @@
+ #include <QApplication>
+ #include <QOpenGLFunctions_3_2_Core>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QQmlContext>
+ #include <QQuickItem>
+ #include <kdeclarative_version.h>
