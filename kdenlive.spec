@@ -17,6 +17,7 @@ BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel
 BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Multimedia-devel
 BuildRequires:	Qt5Network-devel
 BuildRequires:	Qt5Qml-devel
 BuildRequires:	Qt5Quick-devel
@@ -48,6 +49,7 @@ BuildRequires:	kf5-kplotting-devel
 BuildRequires:	kf5-ktextwidgets-devel
 BuildRequires:	kf5-kwidgetsaddons-devel
 BuildRequires:	kf5-kxmlgui-devel
+BuildRequires:	kf5-purpose-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel >= 6.12.0
