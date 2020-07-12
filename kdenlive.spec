@@ -57,6 +57,7 @@ BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rttr-devel
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
 Requires:	Qt5Gui-platform-xcb-egl
