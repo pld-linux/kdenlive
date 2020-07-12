@@ -34,6 +34,7 @@ BuildRequires:	kf5-kconfigwidgets-devel
 BuildRequires:	kf5-kcoreaddons-devel
 BuildRequires:	kf5-kcrash-devel
 BuildRequires:	kf5-kdbusaddons-devel
+BuildRequires:	kf5-kdeclarative-devel
 BuildRequires:	kf5-kdoctools-devel
 BuildRequires:	kf5-kfilemetadata-devel
 BuildRequires:	kf5-kguiaddons-devel
