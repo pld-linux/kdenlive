@@ -1,18 +1,17 @@
-%define		kdeappsver	19.04.0
+%define		kdeappsver	21.12.1
 %define		qtver		5.9.0
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	19.04.0
+Version:	21.12.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	1386b04b1aef5832ae21525aaf4fc8b7
-Patch0:		c11.patch
-Patch1:		qt-5.15.patch
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	480c6620f0c8b9cbf8aec5c54f566b9c
 URL:		http://kdenlive.org/
+BuildConflicts:	gstreamer0.10-devel
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel
@@ -52,7 +51,7 @@ BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	kf5-purpose-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 6.12.0
+BuildRequires:	mlt-devel >= 7.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -98,8 +97,6 @@ Obsługiwany jest zapis/odczyt pełnego projektu.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 mkdir -p build
@@ -107,6 +104,7 @@ cd build
 %cmake .. \
 	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
 
 %ninja_build
@@ -134,10 +132,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/%{name}
 %{_desktopdir}/org.kde.kdenlive.desktop
-%{_docdir}/HTML/en/kdenlive
-/etc/xdg/%{name}*.knsrc
-/etc/xdg/kdenlive.categories
 %{_iconsdir}/*/*/*/*.png
 %{_iconsdir}/*/*/*/*.svg
 %{_iconsdir}/*/*/*/*.svgz
 %{_mandir}/man1/kdenlive*
+%{_datadir}/knsrcfiles/*.knsrc
+%{_datadir}/qlogging-categories5/kdenlive.categories
