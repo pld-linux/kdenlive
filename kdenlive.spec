@@ -1,15 +1,15 @@
-%define		kdeappsver	21.12.1
+%define		kdeappsver	21.12.2
 %define		qtver		5.9.0
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	21.12.1
+Version:	21.12.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	480c6620f0c8b9cbf8aec5c54f566b9c
+# Source0-md5:	dcdd39556a9cef42766f0793298934fb
 URL:		http://kdenlive.org/
 BuildConflicts:	gstreamer0.10-devel
 BuildRequires:	Qt5Concurrent-devel
