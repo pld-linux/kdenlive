@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.1
+%define		kdeappsver	22.04.2
 %define		qtver		5.9.0
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	22.04.1
+Version:	22.04.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d48d35159ab53d909052fbf2b2870309
+# Source0-md5:	76f97816c72ee9d09d118a7cbfa156fc
 URL:		http://kdenlive.org/
 BuildConflicts:	gstreamer0.10
 BuildRequires:	Qt5Concurrent-devel
