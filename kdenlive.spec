@@ -24,6 +24,7 @@ BuildRequires:	Qt5Network-devel
 BuildRequires:	Qt5NetworkAuth-devel
 BuildRequires:	Qt5Qml-devel
 BuildRequires:	Qt5Quick-devel
+BuildRequires:	Qt5Quick-controls2-devel
 BuildRequires:	Qt5Script-devel
 BuildRequires:	Qt5Svg-devel
 BuildRequires:	Qt5WebKit-devel
