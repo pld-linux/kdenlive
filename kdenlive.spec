@@ -1,20 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.3
+%define		kdeappsver	22.12.0
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	c820944f14d914fa45b947a622909345
+# Source0-md5:	9a6de48b702e0139828fe394fd74bc3c
 URL:		http://kdenlive.org/
-BuildConflicts:	gstreamer0.10
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel
@@ -23,8 +22,8 @@ BuildRequires:	Qt5Multimedia-devel
 BuildRequires:	Qt5Network-devel
 BuildRequires:	Qt5NetworkAuth-devel
 BuildRequires:	Qt5Qml-devel
-BuildRequires:	Qt5Quick-devel
 BuildRequires:	Qt5Quick-controls2-devel
+BuildRequires:	Qt5Quick-devel
 BuildRequires:	Qt5Script-devel
 BuildRequires:	Qt5Svg-devel
 BuildRequires:	Qt5WebKit-devel
@@ -40,6 +39,7 @@ BuildRequires:	kf5-kcoreaddons-devel
 BuildRequires:	kf5-kcrash-devel
 BuildRequires:	kf5-kdbusaddons-devel
 BuildRequires:	kf5-kdeclarative-devel
+BuildRequires:	kf5-kdesignerplugin-devel
 BuildRequires:	kf5-kdoctools-devel
 BuildRequires:	kf5-kfilemetadata-devel
 BuildRequires:	kf5-kguiaddons-devel
@@ -56,7 +56,7 @@ BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	kf5-purpose-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 7.8.0
+BuildRequires:	mlt-devel >= 7.12.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -64,6 +64,8 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	rttr-devel
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
+BuildConflicts:	gstreamer0.10
+Requires:	%{name}-data = %{version}-%{release}
 Requires:	Qt5Gui-platform-xcb-egl
 Requires:	Qt5Gui-platform-xcb-glx
 Requires:	Qt5Quick-controls
@@ -71,7 +73,7 @@ Suggests:	dvdauthor
 Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
 Suggests:	frei0r-plugins
-Suggests:	mlt >= 6.0.0
+Suggests:	mlt >= 7.12.0
 Suggests:	recordmydesktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,14 +93,27 @@ is supported.
 Kdenlive to nieliniowy edytor filmów dla KDE. Dostarcza narzędzia do
 zarządzania projektem i edycji polegające na oddzielnym programie
 renderującym (aktualnie PIAVE) do wykonywania operacji edycji.
-Planowana jest obsługa przejść, efektów, wielu formatów plików oraz
-pełnego zarządzania projektem i kapitałem. Aktualna wersja beta może
-modyfikować pliki w formacie surowego DV oraz AVI DV przy użyciu
-narzędzi takich jak przemieszczanie, cięcia, zmiana rozmiaru,
-wybieranie części klatek przy użyciu punktów wejściowych/wyjściowych
-oraz eksportowanie wyniku do innego pliku w formacie surowego DV.
-Można odtwarzać/podglądać zawartość w dowolnej chwili edycji.
-Obsługiwany jest zapis/odczyt pełnego projektu.
+Planowana jest obsługa przejść, efektów, wielu formatów plików
+oraz pełnego zarządzania projektem i kapitałem. Aktualna wersja
+beta może modyfikować pliki w formacie surowego DV oraz AVI DV przy
+użyciu narzędzi takich jak przemieszczanie, cięcia, zmiana
+rozmiaru, wybieranie części klatek przy użyciu punktów
+wejściowych/wyjściowych oraz eksportowanie wyniku do innego pliku w
+formacie surowego DV. Można odtwarzać/podglądać zawartość w
+dowolnej chwili edycji. Obsługiwany jest zapis/odczyt pełnego
+projektu.
+
+%package data
+Summary:	Data files for %{kaname}
+Summary(pl.UTF-8):	Dane dla %{kaname}
+Group:		X11/Applications/Multimedia
+BuildArch:	noarch
+
+%description data
+Data files for %{kaname}.
+
+%description data -l pl.UTF-8
+Dane dla %{kaname}.
 
 %prep
 %setup -q
@@ -130,10 +145,14 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{kaname}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
-%attr(755,root,root) %{_libdir}/qt5/plugins/mltpreview.so
+%{_libdir}/qt5/plugins/mltpreview.so
+%{_libdir}/qt5/plugins/designer/kdenlivewidgets.so
+
+%files data  -f %{kaname}.lang
+%defattr(644,root,root,755)
 %{_datadir}/metainfo/org.kde.kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_datadir}/knotifications5/kdenlive.notifyrc
