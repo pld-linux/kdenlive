@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.3
+%define		kdeappsver	23.04.0
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	22.12.3
-Release:	4
+Version:	23.04.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f53b6bcbde62123ece8408a3ec0d698b
+# Source0-md5:	57f192b50c36acb7c9bde883174297c1
 URL:		http://kdenlive.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -56,7 +56,7 @@ BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	kf5-purpose-devel
 BuildRequires:	kf5-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 7.12.0
+BuildRequires:	mlt-devel >= 7.14.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -148,14 +148,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
-%{_libdir}/qt5/plugins/mltpreview.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/thumbcreator/mltpreview.so
 
 %files data  -f %{kaname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/metainfo/org.kde.kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
 %{_datadir}/knotifications5/kdenlive.notifyrc
-%{_datadir}/kservices5/mltpreview.desktop
 %dir %{_datadir}/kxmlgui5/kdenlive
 %{_datadir}/kxmlgui5/kdenlive/kdenliveui.rc
 %{_datadir}/mime/packages/*.xml
