@@ -1,60 +1,56 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	3e6379baadc4679785f8cfda72dcddef
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	30c037f6282d28fb149ff10d1c6edc69
 URL:		http://kdenlive.org/
-BuildRequires:	Qt5Concurrent-devel
-BuildRequires:	Qt5Core-devel
-BuildRequires:	Qt5DBus-devel
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Multimedia-devel
-BuildRequires:	Qt5Network-devel
-BuildRequires:	Qt5NetworkAuth-devel
-BuildRequires:	Qt5Qml-devel
-BuildRequires:	Qt5Quick-controls2-devel
-BuildRequires:	Qt5Quick-devel
-BuildRequires:	Qt5Script-devel
-BuildRequires:	Qt5Svg-devel
-BuildRequires:	Qt5WebKit-devel
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt6Concurrent-devel
+BuildRequires:	Qt6Core-devel
+BuildRequires:	Qt6DBus-devel
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Multimedia-devel
+BuildRequires:	Qt6Network-devel
+BuildRequires:	Qt6NetworkAuth-devel
+BuildRequires:	Qt6Qml-devel
+BuildRequires:	Qt6Quick-devel
+BuildRequires:	Qt6Svg-devel
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-tools
-BuildRequires:	kf5-attica-devel
-BuildRequires:	kf5-karchive-devel
-BuildRequires:	kf5-kbookmarks-devel
-BuildRequires:	kf5-kconfig-devel
-BuildRequires:	kf5-kconfigwidgets-devel
-BuildRequires:	kf5-kcoreaddons-devel
-BuildRequires:	kf5-kcrash-devel
-BuildRequires:	kf5-kdbusaddons-devel
-BuildRequires:	kf5-kdeclarative-devel
-BuildRequires:	kf5-kdesignerplugin-devel
-BuildRequires:	kf5-kdoctools-devel
-BuildRequires:	kf5-kfilemetadata-devel
-BuildRequires:	kf5-kguiaddons-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-kiconthemes-devel
-BuildRequires:	kf5-kio-devel
-BuildRequires:	kf5-knewstuff-devel
-BuildRequires:	kf5-knotifications-devel
-BuildRequires:	kf5-knotifyconfig-devel
-BuildRequires:	kf5-kplotting-devel
-BuildRequires:	kf5-ktextwidgets-devel
-BuildRequires:	kf5-kwidgetsaddons-devel
-BuildRequires:	kf5-kxmlgui-devel
-BuildRequires:	kf5-purpose-devel
-BuildRequires:	kf5-sonnet-devel
+BuildRequires:	kf6-attica-devel
+BuildRequires:	kf6-karchive-devel
+BuildRequires:	kf6-kbookmarks-devel
+BuildRequires:	kf6-kconfig-devel
+BuildRequires:	kf6-kconfigwidgets-devel
+BuildRequires:	kf6-kcoreaddons-devel
+BuildRequires:	kf6-kcrash-devel
+BuildRequires:	kf6-kdbusaddons-devel
+BuildRequires:	kf6-kdeclarative-devel
+BuildRequires:	kf6-kdoctools-devel
+BuildRequires:	kf6-kfilemetadata-devel
+BuildRequires:	kf6-kguiaddons-devel
+BuildRequires:	kf6-ki18n-devel
+BuildRequires:	kf6-kiconthemes-devel
+BuildRequires:	kf6-kio-devel
+BuildRequires:	kf6-knewstuff-devel
+BuildRequires:	kf6-knotifications-devel
+BuildRequires:	kf6-knotifyconfig-devel
+BuildRequires:	kf6-kplotting-devel
+BuildRequires:	kf6-ktextwidgets-devel
+BuildRequires:	kf6-kwidgetsaddons-devel
+BuildRequires:	kf6-kxmlgui-devel
+BuildRequires:	kf6-purpose-devel
+BuildRequires:	kf6-sonnet-devel
 BuildRequires:	libv4l-devel
 BuildRequires:	mlt-devel >= 7.14.0
 BuildRequires:	ninja
@@ -66,9 +62,7 @@ BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
 BuildConflicts:	gstreamer0.10
 Requires:	%{name}-data = %{version}-%{release}
-Requires:	Qt5Gui-platform-xcb-egl
-Requires:	Qt5Gui-platform-xcb-glx
-Requires:	Qt5Quick-controls
+Requires:	Qt6Quick
 Suggests:	dvdauthor
 Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
@@ -147,13 +141,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}*
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/thumbcreator/mltpreview.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/thumbcreator/mltpreview.so
 
 %files data  -f %{kaname}.lang
 %defattr(644,root,root,755)
 %{_datadir}/metainfo/org.kde.kdenlive.appdata.xml
 %{_datadir}/config.kcfg/kdenlivesettings.kcfg
-%{_datadir}/knotifications5/kdenlive.notifyrc
+%{_datadir}/knotifications6/kdenlive.notifyrc
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/%{name}
 %{_desktopdir}/org.kde.kdenlive.desktop
@@ -162,4 +156,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/*.svgz
 %{_mandir}/man1/kdenlive*
 %{_datadir}/knsrcfiles/*.knsrc
-%{_datadir}/qlogging-categories5/kdenlive.categories
+%{_datadir}/qlogging-categories6/kdenlive.categories
