@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	24.02.0
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	24.01.95
-Release:	0.1
+Version:	24.02.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	30c037f6282d28fb149ff10d1c6edc69
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	9c0f3a0332e38e0cc1ff370cc635043b
 URL:		http://kdenlive.org/
 BuildRequires:	Qt6Concurrent-devel
 BuildRequires:	Qt6Core-devel
@@ -118,7 +118,7 @@ Dane dla %{kaname}.
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DHTML_INSTALL_DIR=%{_kdedocdir} \
+	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
 	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
 
 %ninja_build -C build
