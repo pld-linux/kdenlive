@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.02.2
+%define		kdeappsver	24.05.2
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	24.02.2
+Version:	24.05.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	ae03ea95bc510c92735b818d10033364
+# Source0-md5:	241d07a52bb659a1177a3a3635a5a366
 URL:		http://kdenlive.org/
 BuildRequires:	Qt6Concurrent-devel
 BuildRequires:	Qt6Core-devel
@@ -52,7 +52,7 @@ BuildRequires:	kf6-kxmlgui-devel
 BuildRequires:	kf6-purpose-devel
 BuildRequires:	kf6-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 7.14.0
+BuildRequires:	mlt-devel >= 7.24.0
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -69,6 +69,7 @@ Suggests:	ffmpeg-ffplay
 Suggests:	frei0r-plugins
 Suggests:	mlt >= 7.12.0
 Suggests:	recordmydesktop
+Obsoletes:	ka5-%{kaname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -101,6 +102,7 @@ projektu.
 Summary:	Data files for %{kaname}
 Summary(pl.UTF-8):	Dane dla %{kaname}
 Group:		X11/Applications/Multimedia
+Obsoletes:	ka5-%{kaname}-data < %{version}
 BuildArch:	noarch
 
 %description data
@@ -119,7 +121,7 @@ Dane dla %{kaname}.
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
-	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt5/plugins
+	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt6/plugins
 
 %ninja_build -C build
 
