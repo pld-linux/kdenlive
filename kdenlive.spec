@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.12.3
+%define		kdeappsver	25.04.0
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	24.12.3
+Version:	25.04.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	23b20bb928247267822c58b4e9d5accc
+# Source0-md5:	1ffa55cd4743d5811d1247029369475a
 URL:		http://kdenlive.org/
 BuildRequires:	Qt6Concurrent-devel
 BuildRequires:	Qt6Core-devel
@@ -59,7 +59,6 @@ BuildRequires:	qjson-devel >= 0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	rttr-devel
 BuildRequires:	shared-desktop-ontologies-devel
-BuildRequires:	soprano-devel
 BuildConflicts:	gstreamer0.10
 Requires:	%{name}-data = %{version}-%{release}
 Requires:	Qt6Quick
@@ -88,15 +87,14 @@ is supported.
 Kdenlive to nieliniowy edytor filmów dla KDE. Dostarcza narzędzia do
 zarządzania projektem i edycji polegające na oddzielnym programie
 renderującym (aktualnie PIAVE) do wykonywania operacji edycji.
-Planowana jest obsługa przejść, efektów, wielu formatów plików
-oraz pełnego zarządzania projektem i kapitałem. Aktualna wersja
-beta może modyfikować pliki w formacie surowego DV oraz AVI DV przy
-użyciu narzędzi takich jak przemieszczanie, cięcia, zmiana
-rozmiaru, wybieranie części klatek przy użyciu punktów
-wejściowych/wyjściowych oraz eksportowanie wyniku do innego pliku w
-formacie surowego DV. Można odtwarzać/podglądać zawartość w
-dowolnej chwili edycji. Obsługiwany jest zapis/odczyt pełnego
-projektu.
+Planowana jest obsługa przejść, efektów, wielu formatów plików oraz
+pełnego zarządzania projektem i kapitałem. Aktualna wersja beta może
+modyfikować pliki w formacie surowego DV oraz AVI DV przy użyciu
+narzędzi takich jak przemieszczanie, cięcia, zmiana rozmiaru,
+wybieranie części klatek przy użyciu punktów wejściowych/wyjściowych
+oraz eksportowanie wyniku do innego pliku w formacie surowego DV.
+Można odtwarzać/podglądać zawartość w dowolnej chwili edycji.
+Obsługiwany jest zapis/odczyt pełnego projektu.
 
 %package data
 Summary:	Data files for %{kaname}
@@ -110,6 +108,18 @@ Data files for %{kaname}.
 
 %description data -l pl.UTF-8
 Dane dla %{kaname}.
+
+%package devel
+Summary:	Header files for %{kaname} development
+Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for %{kaname} development.
+
+%description devel -l pl.UTF-8
+Pliki nagłówkowe dla programistów używających %{kaname}.
 
 %prep
 %setup -q
@@ -158,3 +168,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kdenlive*
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/qlogging-categories6/kdenlive.categories
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/Imath
+%{_includedir}/opentime
+%{_includedir}/opentimelineio
+#%{_prefix}/lib/libopentime.a
+#%{_prefix}/lib/libopentimelineio.a
+%{_libdir}/cmake/Imath
+#%{_libdir}/libImath-3_2.a
+%{_pkgconfigdir}/Imath.pc
+%{_datadir}/opentime
+%{_datadir}/opentimelineio
