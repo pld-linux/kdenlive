@@ -109,17 +109,17 @@ Data files for %{kaname}.
 %description data -l pl.UTF-8
 Dane dla %{kaname}.
 
-#%package devel
-#Summary:	Header files for %{kaname} development
-#Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
-#Group:		X11/Development/Libraries
-#Requires:	%{name} = %{version}-%{release}
+%package devel
+Summary:	Header files for %{kaname} development
+Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
-#%description devel
-#Header files for %{kaname} development.
+%description devel
+Header files for %{kaname} development.
 
-#%description devel -l pl.UTF-8
-#Pliki nagłówkowe dla programistów używających %{kaname}.
+%description devel -l pl.UTF-8
+Pliki nagłówkowe dla programistów używających %{kaname}.
 
 %prep
 %setup -q
@@ -169,15 +169,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/knsrcfiles/*.knsrc
 %{_datadir}/qlogging-categories6/kdenlive.categories
 
-#%files devel
-#%defattr(644,root,root,755)
-#%{_includedir}/Imath
-#%{_includedir}/opentime
-#%{_includedir}/opentimelineio
-#%{_prefix}/lib/libopentime.a
-#%{_prefix}/lib/libopentimelineio.a
-#%{_libdir}/cmake/Imath
-#%{_libdir}/libImath-3_2.a
-#%{_pkgconfigdir}/Imath.pc
-#%{_datadir}/opentime
-#%{_datadir}/opentimelineio
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/Imath
+%{_includedir}/opentime
+%{_includedir}/opentimelineio
+%{_prefix}/lib/libopentime.a
+%{_prefix}/lib/libopentimelineio.a
+%{_libdir}/cmake/Imath
+%{_libdir}/libImath-3_2.a
+%{_pkgconfigdir}/Imath.pc
+%{_datadir}/opentime
+%{_datadir}/opentimelineio
