@@ -8,12 +8,13 @@ Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
 Version:	25.04.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	1ffa55cd4743d5811d1247029369475a
 URL:		http://kdenlive.org/
+BuildRequires:	OpenTimelineIO-devel >= 0.17.0
 BuildRequires:	Qt6Concurrent-devel
 BuildRequires:	Qt6Core-devel
 BuildRequires:	Qt6DBus-devel
@@ -119,7 +120,8 @@ Dane dla %{kaname}.
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DKDE_INSTALL_DOCBUNDLEDIR=%{_kdedocdir} \
-	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt6/plugins
+	-DPLUGIN_INSTALL_DIR=%{_libdir}/qt6/plugins \
+	-DFETCH_OTIO=OFF
 
 %ninja_build -C build
 
