@@ -15,7 +15,7 @@ Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kan
 # Source0-md5:	b5b79faa496f5cd52843fc79e578fbbf
 URL:		http://kdenlive.org/
 BuildRequires:	Imath-devel >= 3.1.12
-BuildRequires:	OpenTimelineIO-devel >= 0.17.0
+BuildRequires:	OpenTimelineIO-devel >= 0.18.1
 BuildRequires:	Qt6Concurrent-devel
 BuildRequires:	Qt6Core-devel
 BuildRequires:	Qt6DBus-devel
