@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	25.12.3
+%define		kdeappsver	26.04.0
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	25.12.3
-Release:	2
+Version:	26.04.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	7bd668fbc4e69544d432480266502afd
+# Source0-md5:	f1d668351270b8b3ab9996a014cec0a3
 URL:		http://kdenlive.org/
 BuildRequires:	Imath-devel >= 3.1.12
 BuildRequires:	KDDockWidgets-devel >= 2.3.0
@@ -55,7 +55,7 @@ BuildRequires:	kf6-kxmlgui-devel
 BuildRequires:	kf6-purpose-devel
 BuildRequires:	kf6-sonnet-devel
 BuildRequires:	libv4l-devel
-BuildRequires:	mlt-devel >= 7.24.0
+BuildRequires:	mlt-devel >= 7.34.1
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qjson-devel >= 0.5
@@ -69,7 +69,7 @@ Suggests:	dvdauthor
 Suggests:	dvgrab
 Suggests:	ffmpeg-ffplay
 Suggests:	frei0r-plugins
-Suggests:	mlt >= 7.12.0
+Suggests:	mlt >= 7.34.1
 Suggests:	recordmydesktop
 %requires_eq_to Qt6Core Qt6Core-devel
 Obsoletes:	ka5-%{kaname} < %{version}
