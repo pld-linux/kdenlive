@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	26.08.2
+%define		kdeappsver	26.08.3
 %define		qtver		5.15.2
 %define		kaname		kdenlive
 Summary:	KDE movie editor
 Summary(pl.UTF-8):	Edytor filmów dla KDE
 Name:		kdenlive
-Version:	26.08.2
-Release:	3
+Version:	26.08.3
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	60aeb47d981ce70240bfc6f1ac504426
+# Source0-md5:	2f98343f9ce9c0b23f3a76ad8bef6f56
 URL:		http://kdenlive.org/
 BuildRequires:	Imath-devel >= 3.1.12
 BuildRequires:	KDDockWidgets-devel >= 2.3.0
